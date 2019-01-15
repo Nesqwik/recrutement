@@ -3,22 +3,26 @@
  */
 
 
-function isPalindrome(mot) {
-    for(let i = 0 ; i < mot.length ; i++) {
-        let y = mot.length - i - 1;
-        if(i >= y) {
+function isPalindrome(word) {
+    for (let i = 0; i < word.length; i++) {
+        let y = word.length - i - 1;
+        if (i >= y) {
             return true;
         }
 
-        if(mot[i] !== mot[y]) {
+        if (word[i] !== word[y]) {
             return false;
         }
     }
     return true;
 }
 
-function getPalindromes(mots) {
-    return mots.filter(isPalindrome);
+function isPalindromeFast(word) {
+    return word.split("").reverse().join("") === word;
+}
+
+function getPalindromes(words) {
+    return words.filter(isPalindrome);
 }
 
 module.exports = getPalindromes;
